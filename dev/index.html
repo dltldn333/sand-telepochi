@@ -18,7 +18,7 @@
       .front {
         background: coral;
         color: white;
-        padding: 20px;
+        padding-top: 20px;
         font-weight: bold;
         border-radius: 8px;
       }
@@ -51,8 +51,12 @@
     </div>
 
     <script type="module">
-      import SandwichRenderer from "../src/index.js";
-      const renderer = new SandwichRenderer();
+      import SandwichRenderer from "../dist/index.js";
+
+      const renderer = new SandwichRenderer({
+        frontSelector: ".front",
+        midId: "mid",
+      });
       renderer.init();
     </script>
   </body>

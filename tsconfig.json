@@ -2,13 +2,23 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
-    "allowJs": true,
-    "checkJs": false,
-    "noEmit": true,
+
+    
+
+    "moduleResolution": "bundler",
+    
+
+    "ignoreDeprecations": "6.0", 
+
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "strict": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "declaration": true,
+    "allowJs": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "include": ["src/**/*"]
+  "include": ["src"]
 }
