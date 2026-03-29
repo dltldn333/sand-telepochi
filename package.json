@@ -14,11 +14,19 @@
     "type": "git",
     "url": "git+https://github.com/dltldn333/sand-wich.git"
   },
-  "keywords": ["dom", "portal", "z-index", "renderer"],
+  "keywords": [
+    "dom",
+    "portal",
+    "z-index",
+    "renderer"
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dltldn333/sand-wich/issues"
   },
-  "homepage": "https://github.com/dltldn333/sand-wich#readme"
+  "homepage": "https://github.com/dltldn333/sand-wich#readme",
+  "devDependencies": {
+    "tsup": "^8.5.1"
+  }
 }
