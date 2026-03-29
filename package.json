@@ -1,0 +1,24 @@
+{
+  "name": "sand-telepochi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dltldn333/sand-wich.git"
+  },
+  "keywords": ["dom", "portal", "z-index", "renderer"],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dltldn333/sand-wich/issues"
+  },
+  "homepage": "https://github.com/dltldn333/sand-wich#readme"
+}
