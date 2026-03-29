@@ -8,7 +8,7 @@ interface SandwichItem {
   original: HTMLElement;
 }
 
-export class SandwichRenderer {
+export default class SandwichRenderer {
   private frontSelector: string;
   private midId: string;
   private items: SandwichItem[] = [];
@@ -72,13 +72,17 @@ export class SandwichRenderer {
   }
 
   hijackFrontElements(): void {
-    const frontElements = document.querySelectorAll(this.frontSelector);
+    const frontElements = document.querySelectorAll<HTMLElement>(
+      this.frontSelector,
+    );
+
+    if (!this.frontLayer) return;
 
     frontElements.forEach((el) => {
-      const placeholder = document.createElement("div");
       const originalStyle = window.getComputedStyle(el);
+      const placeholder = document.createElement("div");
 
-      // [중요] Placeholder가 원래 요소의 자리를 완벽히 지키도록 속성 복사
+      // It's crucial to copy styles to ensure the placeholder perfectly occupies the original element's space.
       placeholder.className = "sand-placeholder";
 
       Object.assign(placeholder.style, {
@@ -89,12 +93,13 @@ export class SandwichRenderer {
         marginBottom: originalStyle.marginBottom,
         marginLeft: originalStyle.marginLeft,
         marginRight: originalStyle.marginRight,
+        padding: originalStyle.padding,
+        border: originalStyle.border,
+        boxSizing: originalStyle.boxSizing,
         flex: originalStyle.flex,
+        alignSelf: originalStyle.alignSelf,
         float: originalStyle.float,
-        position:
-          originalStyle.position !== "fixed"
-            ? originalStyle.position
-            : "static",
+        // It occupies space but is invisible
         visibility: "hidden",
         pointerEvents: "none",
       });
@@ -106,10 +111,10 @@ export class SandwichRenderer {
       //   // placeholder.style.padding = "0"; // 실제 알맹이는 el에 있으므로
       //   placeholder.style.visibility = "hidden"; // 눈에는 안 보이지만 공간은 차지
 
-      el.parentNode.insertBefore(placeholder, el);
+      el.parentNode?.insertBefore(placeholder, el);
 
       // 실제 요소를 Layer 3로 텔레포트
-      this.frontLayer.appendChild(el);
+      this.frontLayer!.appendChild(el);
       Object.assign(el.style, {
         position: "fixed", // viewport 기준 절대 좌표
         margin: "0",
