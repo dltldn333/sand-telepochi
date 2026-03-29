@@ -65,7 +65,7 @@ export class SandwichRenderer {
 
   setupMidLayer(): void {
     const midElement = document.getElementById(this.midId);
-    if (midElement) {
+    if (midElement && this.midLayer) {
       this.midLayer.appendChild(midElement);
       midElement.style.pointerEvents = "auto";
     }
